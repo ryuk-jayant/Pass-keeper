@@ -11,7 +11,7 @@ import encode
 
 #-------------------------CHROME OPTIONS FOR DESIRED METHOD OF OPENING WINDOW---------------------------------#
 options = D.ChromeOptions()
-options.add_argument("--user-data-dir=C:\\Users\\S K Agrawal\\AppData\\Local\\Google\\Chrome\\User Data\\")
+options.add_argument("--user-data-dir=C:\\Users\\ASUS\\AppData\\Local\\Google\\Chrome\\User Data\\")
 options.add_experimental_option("excludeSwitches", ["enable-automation"]);
 options.add_argument("--start-maximized")
 options.add_argument("--disable-gpu")
