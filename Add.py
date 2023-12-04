@@ -5,7 +5,7 @@ from PIL import Image, ImageTk
 import tkinter.ttk
 import json
 import encode
-
+from firebase import add_to_database
 # Setting font styles to be used later upon call
 LABEL_FONT = ("Monospace", 12)
 BUTTON_FONT = ("Sans-Serif", 15, "bold")
@@ -90,6 +90,9 @@ class AddWindow(Toplevel):
             details = [kwargs["username"].get(),
                        encode.encode(kwargs["password"].get())]
 
+            data_to_firebase=dict({
+                "password":encode.encode(kwargs["password"].get())
+            })
             # Reading initally present data
             try:
                 with open(fileName, "r") as outfile:
@@ -113,6 +116,9 @@ class AddWindow(Toplevel):
             else:
                 data = {}
                 data[kwargs["service"].get()] = details
+
+            print(data_to_firebase)
+            add_to_database(data_to_firebase, kwargs["service"].get(),kwargs["username"].get())
 
             # Writing and Saving data to file
             with open(".data", "w") as outfile:

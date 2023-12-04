@@ -8,7 +8,7 @@ import tkinter.ttk
 import hashlib
 import encode
 import json
-
+from firebase import update_selected_pass,delete_database,delete_selected_pass
 # Setting font styles to be used later upon call
 NORM_FONT = ("Verdana", 12,"bold", "italic")
 LARGE_FONT = ("Verdana", 13)
@@ -147,6 +147,11 @@ class getTreeFrame(Frame):
                     npwd_enc = encode.encode(npwd)
                     service = self.tree.item(item, "values")[0]
                     self.data[service][1] = npwd_enc
+                    username=self.tree.item(item,"values")[1]
+                    service=str(re.split("\s-", service)[0])
+                    print(service)
+                    print(npwd_enc)
+                    update_selected_pass(service, username, npwd_enc)
                     with open(".data", "w") as f:
                         json.dump(self.data, f, indent=4, sort_keys=True)
                     self.addLists()
@@ -170,7 +175,10 @@ class getTreeFrame(Frame):
             # Authentication Succeeds
             if hashlib.md5(pwd.encode("utf-8")).hexdigest() == encode.password:                
                 service = self.tree.item(item, "values")[0]
+                username=self.tree.item(item,"values")[1]
                 # Delete Account
+                print(username+" is deleted form database...")
+                delete_selected_pass(service, username)
                 del self.data[service]
                 with open(".data", "w") as f:
                     json.dump(self.data, f, indent=4, sort_keys=True)
@@ -197,6 +205,7 @@ class getTreeFrame(Frame):
                 os.remove(".data")
                 for x in self.tree.get_children(""):
                     self.tree.delete(x)
+                delete_database()
             # Authentication Fails
             else:
                 messagebox.showerror("Error", "Incorrect Password !!!\n\
