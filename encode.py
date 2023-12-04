@@ -13,7 +13,7 @@ except IOError:
 # Keyword to be used
 pwd = "C$_P₹oj#cT"
 
-# Function to Encode
+# Encoding function for the cipher
 def encode(string, key=pwd):
     enc = []
     for i in range(len(string)):
