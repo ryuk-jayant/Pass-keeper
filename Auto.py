@@ -456,7 +456,7 @@ class AutoWin(Toplevel):
         # 'e' acts as condition satisfier for showing error messages
         e = 0
 
-        # Searches for details of Steam
+        # Searches for Steam details
         for i in data.keys():
             if "steam" == i.lower():
                 e = 1
@@ -482,7 +482,7 @@ class AutoWin(Toplevel):
                 \n(If you remember adding it to the database)", parent=self)
 
 
-# Used for Debugging
+# For Debugging Purposes
 if __name__ == "__main__":
     root = Tk()
     Tk.iconbitmap(root, default="icon.ico")
