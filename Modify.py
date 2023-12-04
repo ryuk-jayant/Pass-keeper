@@ -62,7 +62,7 @@ class ModifyWindow(Toplevel):
             Search_Hide = Label(self.frame, bg="black", state=DISABLED)
             Search_Hide.grid(row=0, columnspan=3)
 
-        # Awesomeness here
+        # Awesomeness happens here
         # Using another file (Modify_2) in window 
         self.tree = Modify_2.getTreeFrame(self, bd=3)
         self.tree.pack()
@@ -80,7 +80,7 @@ class ModifyWindow(Toplevel):
         return True
 
 
-# Used for Debugging
+# For Debugging Purposes
 if __name__ == "__main__":
     root = Tk()
     Tk.iconbitmap(root, default="icon.ico")

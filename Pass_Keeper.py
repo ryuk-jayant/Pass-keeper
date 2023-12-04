@@ -36,7 +36,7 @@ class Login(Tk):
             "text": "Login to access manager", "val": False
         }
 
-        # Check whether user is registered or not
+        # Check whether registered user or not
         if encode.password:
             self.addLoginFrame()
         else:
@@ -203,8 +203,8 @@ class Login(Tk):
     def Info(self, *args):
         messagebox.showinfo("Made By",
                             "This project is a bonafide creation of\n\
-Divyansh Agrawal, Abhishek Sharma & Pratyush Nair\n\
-(Students of class XII-A at DPS Bhilai (C.G.))", parent=self)
+Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
+", parent=self)
 
     # Defines how the Registration window of the program will look like
     def addRegisterFrame(self, *arg):

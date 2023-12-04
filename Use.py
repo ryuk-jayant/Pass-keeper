@@ -236,9 +236,9 @@ class getTreeFrame(Frame):
                                      \nEnter your manager's password to Verify\n",
                                      show="*", parent=self)
         if pwd is not None:
-            # Authentication Succeeds
+            # When authentication succeeds
             if hashlib.md5(pwd.encode("utf-8")).hexdigest() == encode.password:
-                # Open PassWindow() and print password into it
+                # Opens PassWindow() and print password into it
                 Window = PassWindow()
                 Window.title("Show Password")
                 Window.geometry("350x100")
@@ -247,7 +247,7 @@ class getTreeFrame(Frame):
                 var = self.data[service][1]
                 var = encode.decode(var)
                 print(var)
-            # Authentication Fails
+            # When authentication fails
             else:
                 messagebox.showerror("Error", "Incorrect Password !!!\n\
                                      \n      Try Again", parent=self)
@@ -279,7 +279,7 @@ class getTreeFrame(Frame):
                                                          int(not descending)))
 
 
-# Used for Debugging
+# For  Debugging Purposes
 if __name__ == "__main__":
     root = Tk()
     Tk.iconbitmap(root, default="icon.ico")
