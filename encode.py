@@ -1,5 +1,6 @@
 # Importing required module
 import base64
+from Enc2 import encrypt,decrypt
 
 password = None
 try:
