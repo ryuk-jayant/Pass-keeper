@@ -29,7 +29,7 @@ class AddWindow(Toplevel):
         add.pack()
 
         # Adding image as Window Heading
-        img = Image.open("Add1.png")
+        img = Image.open("images/Add1.png")
         img = img.resize((90, 50), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         l = Label(add, image=logo, bd=0)
@@ -140,7 +140,7 @@ class AddWindow(Toplevel):
 # Used for Debugging
 if __name__ == "__main__":
     root = Tk()
-    Tk.iconbitmap(root, default="icon.ico")
+    Tk.iconbitmap(root, default="ICO/icon.ico")
     Tk.wm_title(root, "Test")
     Label(root, text="Root window").pack()
     new = AddWindow()

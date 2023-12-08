@@ -46,7 +46,7 @@ class AutoWin(Toplevel):
         d1.grid(row=0, columnspan=3, pady=20)
 
         # Adding Facebook Button
-        img = Image.open("facebook.png")
+        img = Image.open("images/facebook.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         fb = Button(Auto, image=logo, compound="top",bg="black",
@@ -55,7 +55,7 @@ class AutoWin(Toplevel):
         fb.grid(row=1, column=0, padx=10, pady=10)
 
         # Adding Instagram Button
-        img = Image.open("instagram.png")
+        img = Image.open("images/instagram.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         insta = Button(Auto, image=logo, compound="top",bg="black",
@@ -64,7 +64,7 @@ class AutoWin(Toplevel):
         insta.grid(row=1, column=1, padx=10, pady=10)
 
         # Adding Twitter Button
-        img = Image.open("twitter.png")
+        img = Image.open("images/twitter.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         twtr = Button(Auto, image=logo, compound="top",bg="black",
@@ -73,7 +73,7 @@ class AutoWin(Toplevel):
         twtr.grid(row=1, column=2, padx=10, pady=10)
 
         # Adding Amazon Button
-        img = Image.open("amazon.png")
+        img = Image.open("images/amazon.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         amz = Button(Auto, image=logo, compound="top",bg="black",
@@ -82,7 +82,7 @@ class AutoWin(Toplevel):
         amz.grid(row=2, column=0, padx=10, pady=10)
 
         # Adding Flipkart Button
-        img = Image.open("flipkart.png")
+        img = Image.open("images/flipkart.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         flk = Button(Auto, image=logo, compound="top",bg="black",
@@ -91,7 +91,7 @@ class AutoWin(Toplevel):
         flk.grid(row=2, column=1, padx=10, pady=10)
 
         # Adding TATA CliQ Button
-        img = Image.open("cliq.png")
+        img = Image.open("images/cliq.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         cliq = Button(Auto, image=logo, compound="top",bg="black",
@@ -100,7 +100,7 @@ class AutoWin(Toplevel):
         cliq.grid(row=2, column=2, padx=10, pady=10)
 
         # Adding Netflix Button
-        img = Image.open("netflix.png")
+        img = Image.open("images/netflix.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         nf = Button(Auto, image=logo, compound="top",bg="black",
@@ -109,7 +109,7 @@ class AutoWin(Toplevel):
         nf.grid(row=3, column=0, padx=10, pady=10)
 
         # Adding Amazon Prime Video Button
-        img = Image.open("prime.png")
+        img = Image.open("images/prime.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         apv = Button(Auto, image=logo, compound="top",bg="black",
@@ -118,7 +118,7 @@ class AutoWin(Toplevel):
         apv.grid(row=3, column=1, padx=10, pady=10)
 
         # Adding Steam Button
-        img = Image.open("steam.png")
+        img = Image.open("images/steam.png")
         img = img.resize((110, 110), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         steam = Button(Auto, image=logo, compound="top",bg="black",
@@ -485,7 +485,7 @@ class AutoWin(Toplevel):
 # For Debugging Purposes
 if __name__ == "__main__":
     root = Tk()
-    Tk.iconbitmap(root, default="icon.ico")
+    Tk.iconbitmap(root, default="ICO/icon.ico")
     Tk.wm_title(root, "Test")
     Label(root, text="Root window").pack()
     new = AutoWin()

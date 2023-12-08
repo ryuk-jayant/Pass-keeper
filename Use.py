@@ -86,14 +86,14 @@ class getTreeFrame(Frame):
             # Adding the Treeview
 
             # Adding image as Window Heading
-            img = Image.open("Use1.png")
+            img = Image.open("images/Use1.png")
             img = img.resize((100, 50), Image.ANTIALIAS)
             logo = ImageTk.PhotoImage(img)
             l = Label(self, image=logo, bd=0)
             l.img = logo
             l.pack(pady=7)
 
-            # Setting Button Style
+            # Setting Button Style  
             s = tkinter.ttk.Style()
             s.configure("Submit.TButton", font=BUTTON_FONT)
             
@@ -282,7 +282,7 @@ class getTreeFrame(Frame):
 # For  Debugging Purposes
 if __name__ == "__main__":
     root = Tk()
-    Tk.iconbitmap(root, default="icon.ico")
+    Tk.iconbitmap(root, default="ICO/icon.ico")
     Tk.wm_title(root, "Test")
     Label(root, text="Root window").pack()
     new = UseWindow(root)

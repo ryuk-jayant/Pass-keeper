@@ -241,7 +241,7 @@ class getTreeFrame(Frame):
 # Used for Debugging
 if __name__ == "__main__":
     root = Tk()
-    Tk.iconbitmap(root, default="icon.ico")
+    Tk.iconbitmap(root, default="ICO/icon.ico")
     Tk.wm_title(root, "Test")
     Label(root, text="Root window").pack()
     new = ListWindow(root)

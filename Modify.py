@@ -23,7 +23,7 @@ class ModifyWindow(Toplevel):
         self.title("Modify")
 
         # Adding image as Window Heading
-        img = Image.open("Modify1.png")
+        img = Image.open("images/Modify1.png")
         img = img.resize((130, 55), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         l = Label(self, image=logo, bd=0)
@@ -83,7 +83,7 @@ class ModifyWindow(Toplevel):
 # For Debugging Purposes
 if __name__ == "__main__":
     root = Tk()
-    Tk.iconbitmap(root, default="icon.ico")
+    Tk.iconbitmap(root, default="ICO/icon.ico")
     Tk.wm_title(root, "Test")
     Label(root, text="Root window").pack()
     new = ModifyWindow(root)

@@ -23,7 +23,7 @@ class Login(Tk):
     # Constructor
     def __init__(self, *args):
         Tk.__init__(self, *args)
-        Tk.iconbitmap(self, default="icon.ico")
+        Tk.iconbitmap(self, default="ICO/icon.ico")
         Tk.wm_title(self, "Pass-Keeper")
         self.option_add("*background", "black")
         self.option_add("*foreground", "white")
@@ -49,7 +49,7 @@ class Login(Tk):
         login.pack()
 
         # Adding Info Button
-        img = Image.open("info.png")
+        img = Image.open("images/info.png")
         img = img.resize((60, 60), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(login, image=logo, compound="top",
@@ -59,7 +59,7 @@ class Login(Tk):
         logout.place(x=5, y=2)
 
         # Adding image as Window Heading
-        img = Image.open("login1.png")
+        img = Image.open("images/login1.png")
         img = img.resize((140, 50), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         l = Label(login, image=logo, bd=0)
@@ -67,7 +67,7 @@ class Login(Tk):
         l.grid(row=0, columnspan=3, pady=5)
 
         # Adding image to enhance UI
-        img = Image.open("login.png")
+        img = Image.open("images/login.png")
         img = img.resize((150, 150), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         l = Label(login, image=logo, bd=0)
@@ -137,7 +137,7 @@ class Login(Tk):
     def addConfigBtn(self, login):
 
         # Adding Info Button
-        img = Image.open("info.png")
+        img = Image.open("images/info.png")
         img = img.resize((60, 60), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(login, image=logo, compound="top",
@@ -147,7 +147,7 @@ class Login(Tk):
         logout.place(x=5, y=2)
 
         # Adding image to enhance UI
-        img = Image.open("login2.png")
+        img = Image.open("images/login2.png")
         img = img.resize((225, 225), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         l = Label(login, image=logo, bd=0)
@@ -155,7 +155,7 @@ class Login(Tk):
         l.grid(row=0, rowspan=2, columnspan=3)
 
         # Adding Logout Button
-        img = Image.open("logout.png")
+        img = Image.open("images/logout.png")
         img = img.resize((45, 45), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(login, image=logo, text="Logout", compound="top",
@@ -187,7 +187,7 @@ class Login(Tk):
             f.append(Frame(login, padx=20, bg="black"))
             f[i].grid(row=3, column=i, rowspan=2)
             img.append(PhotoImage(
-                file=btnList[i] + ".png"))
+                file="images/"+btnList[i] + ".png"))
             self.temp.append(img[i])
             tkinter.ttk.Button(f[i], image=img[i], text=btnList[i],
                                compound="top", style="Submit.TButton",
@@ -213,7 +213,7 @@ Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
         register.pack()
 
         # Adding Info Button
-        img = Image.open("info.png")
+        img = Image.open("images/info.png")
         img = img.resize((60, 60), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(register, image=logo, compound="top",
@@ -223,7 +223,7 @@ Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
         logout.place(x=5, y=8)
 
         # Adding image as Window Heading
-        img = Image.open("title.png")
+        img = Image.open("images/title.png")
         img = img.resize((350, 70), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         l = Label(register, image=logo, bd=0)
@@ -231,7 +231,7 @@ Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
         l.grid(row=0, columnspan=3, pady=5)
 
         # Adding image to enhance UI
-        img = Image.open("register.png")
+        img = Image.open("images/register.png")
         img = img.resize((140, 230), Image.ANTIALIAS)
         logo = ImageTk.PhotoImage(img)
         l = Label(register, image=logo, bd=0)
