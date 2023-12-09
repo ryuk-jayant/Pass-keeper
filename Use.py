@@ -87,7 +87,7 @@ class getTreeFrame(Frame):
 
             # Adding image as Window Heading
             img = Image.open("images/Use1.png")
-            img = img.resize((100, 50), Image.ANTIALIAS)
+            img = img.resize((100, 50), Image.LANCZOS)
             logo = ImageTk.PhotoImage(img)
             l = Label(self, image=logo, bd=0)
             l.img = logo

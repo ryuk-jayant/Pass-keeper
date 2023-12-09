@@ -47,7 +47,7 @@ class AutoWin(Toplevel):
 
         # Adding Facebook Button
         img = Image.open("images/facebook.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         fb = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.facebook())
@@ -56,7 +56,7 @@ class AutoWin(Toplevel):
 
         # Adding Instagram Button
         img = Image.open("images/instagram.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         insta = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.instagram())
@@ -65,7 +65,7 @@ class AutoWin(Toplevel):
 
         # Adding Twitter Button
         img = Image.open("images/twitter.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         twtr = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.twitter())
@@ -74,7 +74,7 @@ class AutoWin(Toplevel):
 
         # Adding Amazon Button
         img = Image.open("images/amazon.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         amz = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.amazon())
@@ -83,7 +83,7 @@ class AutoWin(Toplevel):
 
         # Adding Flipkart Button
         img = Image.open("images/flipkart.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         flk = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.flipkart())
@@ -92,7 +92,7 @@ class AutoWin(Toplevel):
 
         # Adding TATA CliQ Button
         img = Image.open("images/cliq.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         cliq = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.tata_cliq())
@@ -101,7 +101,7 @@ class AutoWin(Toplevel):
 
         # Adding Netflix Button
         img = Image.open("images/netflix.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         nf = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.netflix())
@@ -110,7 +110,7 @@ class AutoWin(Toplevel):
 
         # Adding Amazon Prime Video Button
         img = Image.open("images/prime.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         apv = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.prime_video())
@@ -119,7 +119,7 @@ class AutoWin(Toplevel):
 
         # Adding Steam Button
         img = Image.open("images/steam.png")
-        img = img.resize((110, 110), Image.ANTIALIAS)
+        img = img.resize((110, 110), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         steam = Button(Auto, image=logo, compound="top",bg="black",
                     fg="white", bd=0, command=lambda: self.steam())

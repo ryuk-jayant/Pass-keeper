@@ -5,10 +5,13 @@ from PIL import Image, ImageTk
 import tkinter.ttk
 import json
 import encode
+import RPG
 from firebase import add_to_database
+
 # Setting font styles to be used later upon call
 LABEL_FONT = ("Monospace", 12)
 BUTTON_FONT = ("Sans-Serif", 15, "bold")
+G_BUTTON_FONT = ("Sans-Serif", 10)
 INFO_FONT = ("Helvetica", 14, "bold")
 
 
@@ -30,7 +33,7 @@ class AddWindow(Toplevel):
 
         # Adding image as Window Heading
         img = Image.open("images/Add1.png")
-        img = img.resize((90, 50), Image.ANTIALIAS)
+        img = img.resize((90, 50), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         l = Label(add, image=logo, bd=0)
         l.img = logo
@@ -63,10 +66,20 @@ class AddWindow(Toplevel):
         for entry in (username, password, service):
             entry.bindtags((tag,) + entry.bindtags())
      
+        # Setting PassGen Style
+        pg = tkinter.ttk.Style()
+        pg.configure("PassGen.TButton", font=G_BUTTON_FONT, sticky="s")
+
+        # Adding PassGen Button
+        pgBtn = tkinter.ttk.Button(add, text="Generate Secure Password",
+                                    style="PassGen.TButton",
+                                    command=lambda: self.passGen(password=password))
+        pgBtn.grid(row=4, column=1, pady=1)
+
         # Label for adding space 
         info = Label(add, width=30, bd=3, pady=7, bg="black",
                      font=INFO_FONT)
-        info.grid(row=4, columnspan=2, pady=3)
+        info.grid(row=5, columnspan=2, pady=0)
 
         # Setting Button Style
         s = tkinter.ttk.Style()
@@ -78,7 +91,15 @@ class AddWindow(Toplevel):
                                     command=lambda: self.addClicked(
                                         info=info, username=username,
                                         password=password, service=service))
-        addBtn.grid(row=5, columnspan=2, pady=3)
+        addBtn.grid(row=6, columnspan=2, pady=0)
+
+
+    #Function for Random Password Generation
+    def passGen(self, **kwargs):
+        pwd = RPG.RandPassGen()
+        kwargs["password"].delete(0, "end")
+        kwargs["password"].insert(0, pwd)
+
 
     # Function for what to do when Submit button is clicked
     def addClicked(self, **kwargs):   
@@ -129,7 +150,8 @@ class AddWindow(Toplevel):
                 kwargs[widg].delete(0, "end")
 
             # Show Confirmation
-            kwargs["info"].config(text="Added ✔", fg="green")
+            messagebox.showinfo("Success",
+                                 "Account added successfully!!!", parent=self)
             
         # Raise an error for not filling necessary fields
         else:

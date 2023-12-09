@@ -50,7 +50,7 @@ class Login(Tk):
 
         # Adding Info Button
         img = Image.open("images/info.png")
-        img = img.resize((60, 60), Image.ANTIALIAS)
+        img = img.resize((60, 60), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(login, image=logo, compound="top",
                       bg="black", fg="white", font=BUTTON_FONT,
@@ -60,7 +60,7 @@ class Login(Tk):
 
         # Adding image as Window Heading
         img = Image.open("images/login1.png")
-        img = img.resize((140, 50), Image.ANTIALIAS)
+        img = img.resize((140, 50), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         l = Label(login, image=logo, bd=0)
         l.img = logo
@@ -68,7 +68,7 @@ class Login(Tk):
 
         # Adding image to enhance UI
         img = Image.open("images/login.png")
-        img = img.resize((150, 150), Image.ANTIALIAS)
+        img = img.resize((150, 150), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         l = Label(login, image=logo, bd=0)
         l.img = logo
@@ -138,7 +138,7 @@ class Login(Tk):
 
         # Adding Info Button
         img = Image.open("images/info.png")
-        img = img.resize((60, 60), Image.ANTIALIAS)
+        img = img.resize((60, 60), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(login, image=logo, compound="top",
                       bg="black", fg="white", font=BUTTON_FONT,
@@ -148,7 +148,7 @@ class Login(Tk):
 
         # Adding image to enhance UI
         img = Image.open("images/login2.png")
-        img = img.resize((225, 225), Image.ANTIALIAS)
+        img = img.resize((225, 225), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         l = Label(login, image=logo, bd=0)
         l.img = logo
@@ -156,7 +156,7 @@ class Login(Tk):
 
         # Adding Logout Button
         img = Image.open("images/logout.png")
-        img = img.resize((45, 45), Image.ANTIALIAS)
+        img = img.resize((45, 45), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(login, image=logo, text="Logout", compound="top",
                       bg="black", fg="white", font=BUTTON_FONT,
@@ -214,7 +214,7 @@ Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
 
         # Adding Info Button
         img = Image.open("images/info.png")
-        img = img.resize((60, 60), Image.ANTIALIAS)
+        img = img.resize((60, 60), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         logout = Button(register, image=logo, compound="top",
                       bg="black", fg="white", font=BUTTON_FONT,
@@ -224,7 +224,7 @@ Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
 
         # Adding image as Window Heading
         img = Image.open("images/title.png")
-        img = img.resize((350, 70), Image.ANTIALIAS)
+        img = img.resize((350, 70), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         l = Label(register, image=logo, bd=0)
         l.img = logo
@@ -232,7 +232,7 @@ Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
 
         # Adding image to enhance UI
         img = Image.open("images/register.png")
-        img = img.resize((140, 230), Image.ANTIALIAS)
+        img = img.resize((140, 230), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         l = Label(register, image=logo, bd=0)
         l.img = logo
@@ -276,12 +276,7 @@ Divyansh Agrawal, Jayant Dubey & Pratyush Nair\n\
                                command=lambda: self.register(register, entry,
                                                              entryChk))
         submitBtn.grid(row=5, columnspan=3, pady=15)
-
-        # Adding "Made with love by Indians" Label
-        MadeIn = Label(register, text="❤ भारतीयों द्वारा सप्रेम निर्मित ❤",
-                       font=MADEIN_FONT, bd=3,
-                       pady=5, bg="black", fg="cyan")
-        MadeIn.grid(row=6, columnspan=3, pady=5)
+        
 
     # Function to register the user
     def register(self, frame, *pwd):

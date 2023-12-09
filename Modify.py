@@ -24,7 +24,7 @@ class ModifyWindow(Toplevel):
 
         # Adding image as Window Heading
         img = Image.open("images/Modify1.png")
-        img = img.resize((130, 55), Image.ANTIALIAS)
+        img = img.resize((130, 55), Image.LANCZOS)
         logo = ImageTk.PhotoImage(img)
         l = Label(self, image=logo, bd=0)
         l.img = logo
@@ -61,9 +61,7 @@ class ModifyWindow(Toplevel):
         else:
             Search_Hide = Label(self.frame, bg="black", state=DISABLED)
             Search_Hide.grid(row=0, columnspan=3)
-
-        # Awesomeness happens here
-        # Using another file (Modify_2) in window 
+ 
         self.tree = Modify_2.getTreeFrame(self, bd=3)
         self.tree.pack()
 
