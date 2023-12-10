@@ -9,6 +9,7 @@ import hashlib
 import encode
 import json
 from firebase import update_selected_pass,delete_database,delete_selected_pass
+
 # Setting font styles to be used later upon call
 NORM_FONT = ("Verdana", 12,"bold", "italic")
 LARGE_FONT = ("Verdana", 13)
@@ -131,64 +132,44 @@ class getTreeFrame(Frame):
     def Update(self, *args):
         item = self.tree.focus()
 
-        # Asks for authentication before allowing to Update account
-        pwd = simpledialog.askstring("Verify",
-                                     "Enter your manager's password to confirm.\n\
-                                     \n   Warning : This action can not be undone.\n",
-                                     show="*", parent=self)
-        if pwd is not None:
-            # Authentication Succeeds
-            if hashlib.md5(pwd.encode("utf-8")).hexdigest() == encode.password:              
-                npwd = simpledialog.askstring("New Password",
-                                            "Enter a new password for selected entry.\n",
-                                            show="*", parent=self)
-                # Set new password for account
-                if npwd is not None:
-                    npwd_enc = encode.encode(npwd)
-                    service = self.tree.item(item, "values")[0]
-                    self.data[service][1] = npwd_enc
-                    username=self.tree.item(item,"values")[1]
-                    service=str(re.split("\s-", service)[0])
-                    print(service)
-                    print(npwd_enc)
-                    update_selected_pass(service, username, npwd_enc)
-                    with open(".data", "w") as f:
-                        json.dump(self.data, f, indent=4, sort_keys=True)
-                    self.addLists()
-                    messagebox.showinfo("Success",
-                                        "Password Updated Successfully", parent=self)
-            # Authentication Fails
-            else:
-                messagebox.showerror("Error", "Incorrect Password !!!\n\
-                                     \n      Try Again", parent=self)    
+        if messagebox.askokcancel("Confirmation", "Proceed to updating password?", parent=self):              
+            npwd = simpledialog.askstring("New Password",
+                                        "Enter a new password for selected entry.\n",
+                                        show="*", parent=self)
+            # Set new password for account
+            if npwd is not None:
+                npwd_enc = encode.encode(npwd)
+                service = self.tree.item(item, "values")[0]
+                self.data[service][1] = npwd_enc
+                username=self.tree.item(item,"values")[1]
+                service=str(re.split("\s-", service)[0])
+                print(service)
+                print(npwd_enc)
+                update_selected_pass(service, username, npwd_enc)
+                with open(".data", "w") as f:
+                    json.dump(self.data, f, indent=4, sort_keys=True)
+                self.addLists()
+                messagebox.showinfo("Success",
+                                    "Password Updated Successfully", parent=self)
+  
 
     # Function for what to do when Delete button is clicked
     def Delete(self, *args):
         item = self.tree.focus()
 
-        # Asks for authentication before allowing to Delete account
-        pwd = simpledialog.askstring("Verify",
-                                     "Enter your manager's password to confirm.\n\
-                                     \n   Warning : This action can not be undone.\n",
-                                     show="*", parent=self)
-        if pwd is not None:
-            # Authentication Succeeds
-            if hashlib.md5(pwd.encode("utf-8")).hexdigest() == encode.password:                
-                service = self.tree.item(item, "values")[0]
-                username=self.tree.item(item,"values")[1]
-                # Delete Account
-                print(username+" is deleted form database...")
-                delete_selected_pass(service, username)
-                del self.data[service]
-                with open(".data", "w") as f:
-                    json.dump(self.data, f, indent=4, sort_keys=True)
-                self.addLists()
-                messagebox.showinfo("Success",
-                                        "Account Deleted Successfully", parent=self)
-            # Authentication Fails
-            else:
-                messagebox.showerror("Error", "Incorrect Password !!!\n\
-                                     \n      Try Again", parent=self)
+        if messagebox.askokcancel("Confirmation", "Proceed to deleting entry?", parent=self):                
+            service = self.tree.item(item, "values")[0]
+            username=self.tree.item(item,"values")[1]
+            # Delete Account
+            print(username+" is deleted from database...")
+            delete_selected_pass(service, username)
+            del self.data[service]
+            with open(".data", "w") as f:
+                json.dump(self.data, f, indent=4, sort_keys=True)
+            self.addLists()
+            messagebox.showinfo("Success",
+                                    "Account Deleted Successfully", parent=self)
+
 
     # Function for what to do when "Delete All" button is clicked
     def DeleteAll(self, *args):
@@ -206,6 +187,8 @@ class getTreeFrame(Frame):
                 for x in self.tree.get_children(""):
                     self.tree.delete(x)
                 delete_database()
+                messagebox.showinfo("Success",
+                                        "Database Deleted Successfully", parent=self)
             # Authentication Fails
             else:
                 messagebox.showerror("Error", "Incorrect Password !!!\n\

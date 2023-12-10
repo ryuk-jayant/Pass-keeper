@@ -1,6 +1,5 @@
 import secrets
 import string
-import random
 
 def RandPassGen():
     letters = string.ascii_letters

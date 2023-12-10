@@ -11,10 +11,9 @@ import encode
 
 #-------------------------CHROME OPTIONS FOR DESIRED METHOD OF OPENING WINDOW---------------------------------#
 options = D.ChromeOptions()
-options.add_argument("--user-data-dir=C:\\Users\\ASUS\\AppData\\Local\\Google\\Chrome\\User Data\\")
+#options.add_argument("--user-data-dir=C:\\Users\\d_agr\\AppData\\Local\\Google\\Chrome\\User Data\\")
 options.add_experimental_option("excludeSwitches", ["enable-automation"]);
-options.add_argument("--start-maximized")
-options.add_argument("--disable-gpu")
+options.add_argument("--start-maximized --incognito")
 options.add_argument("no-sandbox")
 options.add_argument("disable-default-apps");
 #-------------------------XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX---------------------------------#
@@ -154,7 +153,7 @@ class AutoWin(Toplevel):
                 pwd = encode.decode(data[i][1])
                 # Launching automation assistant and going to desired webpage
                 d = D.Chrome("chromedriver.exe", options=options)        
-                d.get("https://m.facebook.com/?refsrc=http%3A%2F%2Fwww.google.com%2F&_rdr")
+                d.get("https://m.facebook.com/")
                 # Finding and Filling Username element
                 element_1 = d.find_element_by_name("email");
                 element_1.send_keys((str(uid)))

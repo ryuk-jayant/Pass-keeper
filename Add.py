@@ -12,7 +12,6 @@ from firebase import add_to_database
 LABEL_FONT = ("Monospace", 12)
 BUTTON_FONT = ("Sans-Serif", 15, "bold")
 G_BUTTON_FONT = ("Sans-Serif", 10)
-INFO_FONT = ("Helvetica", 14, "bold")
 
 
 # Toplevel or Root Window
@@ -77,9 +76,8 @@ class AddWindow(Toplevel):
         pgBtn.grid(row=4, column=1, pady=1)
 
         # Label for adding space 
-        info = Label(add, width=30, bd=3, pady=7, bg="black",
-                     font=INFO_FONT)
-        info.grid(row=5, columnspan=2, pady=0)
+        space = Label(add, width=30, bd=3, pady=7, bg="black")
+        space.grid(row=5, columnspan=2, pady=0)
 
         # Setting Button Style
         s = tkinter.ttk.Style()
@@ -88,9 +86,8 @@ class AddWindow(Toplevel):
         # Adding Submit Button
         addBtn = tkinter.ttk.Button(add, text="Add to Manager",
                                     style="Submit.TButton",
-                                    command=lambda: self.addClicked(
-                                        info=info, username=username,
-                                        password=password, service=service))
+                                    command=lambda: self.addClicked(username=username,
+                                     password=password, service=service))
         addBtn.grid(row=6, columnspan=2, pady=0)
 
 
@@ -151,7 +148,7 @@ class AddWindow(Toplevel):
 
             # Show Confirmation
             messagebox.showinfo("Success",
-                                 "Account added successfully!!!", parent=self)
+                                 "Account added successfully!", parent=self)
             
         # Raise an error for not filling necessary fields
         else:
